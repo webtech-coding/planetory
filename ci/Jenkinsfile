@@ -14,6 +14,7 @@ pipeline{
         stage("Build started"){
             steps{
                 echo "Build completed...."
+                echo "Another change here"
             }
         }
     }
