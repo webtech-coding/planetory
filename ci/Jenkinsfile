@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git pull'){
+            steps{
+                echo 'git pull'
+            }
+        }
+        stage('Npm install'){
+            steps{
+                echo 'Npm install'
+            }
+        }
+    }
+}
