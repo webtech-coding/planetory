@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Npm install'){
             steps{
-                echo 'Npm install'
+                echo 'Npm install preocess'
             }
         }
     }
