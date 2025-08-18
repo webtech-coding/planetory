@@ -11,5 +11,10 @@ pipeline{
                 echo 'Npm install preocess'
             }
         }
+        stage("Build started"){
+            steps{
+                echo "Build completed"
+            }
+        }
     }
 }
