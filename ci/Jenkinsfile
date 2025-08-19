@@ -15,9 +15,7 @@ pipeline{
     }
     stages{
         stage('NPM INSTALL'){
-            when{
-                branch 'main'
-            }
+           
             agent {
                 docker {
                     image 'node:24-bullseye'
@@ -26,6 +24,7 @@ pipeline{
             }
             steps {
                echo 'Running npm ci...' 
+               echo "${env.BRANCH_NAME}"
                sh '''
                     echo node --version
                     echo npm --version
