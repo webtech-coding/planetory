@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        String secret = credentials('my-secret')
+        String secret = 'credetinals'
     }
     stages{
         stage('Git pull'){
