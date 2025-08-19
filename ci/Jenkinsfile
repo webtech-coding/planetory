@@ -26,8 +26,8 @@ pipeline{
                echo 'Running npm ci...' 
                echo "${env.BRANCH_NAME}"
                sh '''
-                    echo node --version
-                    echo npm --version
+                    node --version
+                    npm --version
                     npm ci
                 '''
             }
