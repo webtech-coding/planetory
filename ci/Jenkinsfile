@@ -1,8 +1,8 @@
 pipeline{
     agent any
     environment{
-        def secret = 'some useful text as def'
-        def some = "so what is it"
+        def NETLIFY_SITE_ID = credentials('planatory-site-id')
+        def NETLIFY_AUTH_TOKEN = credentails('netlify-auth')
     }
     options{
         //keep only the last 10 builds
@@ -56,7 +56,7 @@ pipeline{
             }
         }
         stage("DEPLOYMENT"){
-            agent{
+             agent{
                 docker {
                     image 'node:24'
                     reuseNode true
@@ -65,7 +65,16 @@ pipeline{
             steps{
                 sh '''
                     npm install netlify-cli
+                    netlify deploy --dir=dist --prod
                 '''
+            }
+            post{
+                success{
+                    echo 'site updated'
+                }
+                failure{
+                    echo 'failed to deploy the site'
+                }
             }
         }
     }
