@@ -1,13 +1,13 @@
 pipeline{
     agent any
+    environment{
+        String secret = credentials('my-secret')
+    }
     stages{
         stage('Git pull'){
             steps{
-                script{
-                    def secret = credentials('my-secret')
-                    echo "Printing the secret from cedentials"
-                    echo secret
-                }
+               echo `${env.JENKINS_URL}`
+               echo secret
                
             }
         }
