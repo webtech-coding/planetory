@@ -19,13 +19,12 @@ pipeline{
                 branch 'main'
             }
             agent{
-                docker{
+                docker {
                     image 'node:24'
                     reuseNode true
                 }
             }
-            steps{
-
+            steps {
                echo 'Running npm ci...' 
                sh '''
                     echo node --version
@@ -35,8 +34,8 @@ pipeline{
             }
         }
         stage('BUILD PROJECT'){
-            agent{
-                docker{
+            agent {
+                docker {
                     image 'node:24'
                 }
             }
