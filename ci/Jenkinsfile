@@ -4,7 +4,7 @@ pipeline{
         stage('Git pull'){
             steps{
                 script{
-                    def secret= withCredentials('my-secret')
+                    def secret = withCredentials([string(credentailId:'my-secret')])
                     echo "Printing the secret from cedentials"
                     echo secret
                 }
