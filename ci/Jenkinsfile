@@ -5,7 +5,13 @@ pipeline{
         def some = "so what is it"
     }
     options{
+        //keep only the last 10 builds
         buildDiscarder(logRotator(numToKeepStr:'10'))
+        // disable same jobs running in parallel
+        disableConcurrentBuilds()      
+        // timeout for whole pipeline in case of some step hanging
+        // 300s:5 minute
+        timeout(time: 300, unit: 'SECONDS')
     }
     stages{
         stage('Git pull'){
@@ -24,7 +30,7 @@ pipeline{
         stage("Build started"){
             steps{
                 echo "Build completed...."
-                echo "Another change here"
+                echo secret
             }
         }
     }
