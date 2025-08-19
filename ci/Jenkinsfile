@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         NETLIFY_SITE_ID = credentials('planatory-site-id')
-        NETLIFY_AUTH_TOKEN = credentails('netlify-auth')
+        NETLIFY_AUTH_TOKEN = credentials('netlify-auth')
     }
     options{
         //keep only the last 10 builds
