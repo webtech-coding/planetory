@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         def secret = 'some useful text as def'
-        def some = credentials('my-secret')
+        def some = "so what is it"
     }
     stages{
         stage('Git pull'){
