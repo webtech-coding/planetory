@@ -14,22 +14,51 @@ pipeline{
         timeout(time: 300, unit: 'SECONDS')
     }
     stages{
-        stage('Git pull'){
+        stage('NPM INSTALL'){
+            when{
+                branch 'main'
+            }
+            agent{
+                docker{
+                    image 'node:24'
+                    reuseNode true
+                }
+            }
             steps{
-               echo "${env.JENKINS_URL}"
-               echo "${env.BUILD_ID}"
-               echo "${secret}"
-               echo some
+
+               echo 'Running npm ci...' 
+               sh '''
+                    echo node --version
+                    echo npm --version
+                    npm ci
+                '''
             }
         }
-        stage('Npm install'){
+        stage('BUILD PROJECT'){
+            agent{
+                docker{
+                    image 'node:24'
+                }
+            }
             steps{
-                echo 'Npm install preocess'
+                echo 'Build process started'
+                sh '''
+                    npm run build
+                '''
+            }
+            
+            post{
+                success {
+                    echo 'Build process completed!'
+                }
+                failure {
+                    echo 'build failed...' 
+                }
             }
         }
-        stage("Build started"){
+        stage("DEPLOYMENT"){
             steps{
-                echo "Build completed...."
+                echo "Deployment ... "
                 echo secret
             }
         }
