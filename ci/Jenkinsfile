@@ -18,7 +18,7 @@ pipeline{
             when{
                 branch 'main'
             }
-            agent{
+            agent {
                 docker {
                     image 'node:24-bullseye'
                     reuseNode true
