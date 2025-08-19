@@ -56,9 +56,16 @@ pipeline{
             }
         }
         stage("DEPLOYMENT"){
+            agent{
+                docker {
+                    image 'node:24'
+                    reuseNode true
+                }
+            }
             steps{
-                echo "Deployment .... "
-                echo secret
+                sh '''
+                    npm install -g netlify-cli
+                '''
             }
         }
     }
