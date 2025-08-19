@@ -3,8 +3,12 @@ pipeline{
     stages{
         stage('Git pull'){
             steps{
-                def secret= withCredentials('my-secret')
-                echo secret
+                script{
+                    def secret= withCredentials('my-secret')
+                    echo "Printing the secret from cedentials"
+                    echo secret
+                }
+               
             }
         }
         stage('Npm install'){
