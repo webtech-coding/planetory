@@ -20,7 +20,7 @@ pipeline{
             }
             agent{
                 docker {
-                    image 'node:24'
+                    image 'node:24:bullseye'
                     reuseNode true
                 }
             }
@@ -37,6 +37,7 @@ pipeline{
             agent {
                 docker {
                     image 'node:24'
+                    reuseNode true
                 }
             }
             steps{
