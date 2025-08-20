@@ -50,6 +50,7 @@ pipeline{
                 sh '''
                     set VITE_NASA_API_KEY=${VITE_NASA_API_KEY}
                     set VITE_PIC_DAY=${VITE_PIC_DAY}
+                    cat .env.production
                     npm ci
                     npm run build
                 '''
