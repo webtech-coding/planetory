@@ -8,6 +8,8 @@ import Loader from "./components/loader";
 const App=()=> {
   const API_KEY= import.meta.env.VITE_NASA_API_KEY;
   const POD_URL = import.meta.env.VITE_PIC_DAY;
+  console.log(API_KEY)
+  console.log(POD_URL)
   const url = `${POD_URL}?api_key=${API_KEY}`
 
   const [menuState, setMenuState] = useState<MenuPosition>('idle');

@@ -64,11 +64,6 @@ pipeline{
             }
         }
         stage("DEPLOYMENT"){
-            agent any
-            steps{
-                echo "deployment"
-            }
-            /*
              agent{
                 docker {
                     image 'node:24'
@@ -89,7 +84,6 @@ pipeline{
                     echo 'failed to deploy the site'
                 }
             }
-            */
         }
     }
 }
