@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto','Times New Roman', Times, serif;
+    overflow-x: hidden;
+}
+
+.pod{
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: relative;
+}
+
+.title{
+    color: azure;
+    margin-bottom: 100px;
+    margin-left: 100px;
+}
+
+.title-text{
+    font-size: 24px;
+    background:#0076bf;
+    width: fit-content;
+    padding:10px 20px;    
+    margin-bottom: 10px;
+}
+
+.title-pod{
+    font-size: 40px;
+    background:#0076bf;
+    padding:10px 20px;
+    clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);
+}
+
+.info-box{
+    background-color: #0076bf;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.info-box-icon{
+    height: 24px;
+    width: 24px;
+    fill: azure;
+}
+
+.explanation-box{
+    position: absolute;
+    top: 0px;
+    background: #0076bf;
+    right: -350px;
+    min-height:100vh;
+    width: 350px;
+    line-height: 1.6;
+    padding: 20px;
+    font-weight: 300;
+}
+
+.explanation-box-open{
+    /*right: 0;*/
+    animation: slideIn .4s linear forwards;
+}
+
+
+.explanation-box-close{
+    /*right: 0;*/
+    animation: slideOut .4s linear forwards;
+}
+
+.explanation-text{
+    padding-top: 60px;
+    color: azure;
+    letter-spacing: 1.2px;
+}
+
+.loader{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader svg{
+    height: 24px;
+    width: 24px;
+    animation: rotate .4s  linear infinite;
+    margin-bottom: 10px;
+}
+
+.loader-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes slideIn {
+    0%{
+        right: -350px;
+    }
+    100%{
+        right: 0;
+    }
+}
+
+@keyframes slideOut {
+    0%{
+        right: 0;
+    }100%{
+        right: -350px;
+    }
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
