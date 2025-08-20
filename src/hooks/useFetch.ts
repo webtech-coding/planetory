@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import type { IPOD } from "../contstants/types";
 
 const useFetch=(url:string)=>{
+    console.log(url)
     const [error,setError] = useState<boolean>(false);
     const [data,setData] = useState<IPOD | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
