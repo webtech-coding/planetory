@@ -3,6 +3,8 @@ pipeline{
     environment{
         NETLIFY_SITE_ID = credentials('planatory-site-id')
         NETLIFY_AUTH_TOKEN = credentials('netlify-auth')
+        VITE_NASA_API_KEY = credentials('nasa-api-key')
+        VITE_PIC_DAY = 'https://api.nasa.gov/planetary/apod'
     }
     options{
         //keep only the last 10 builds
@@ -39,18 +41,12 @@ pipeline{
                     reuseNode true
                 }
             }
-            environment{
-                VITE_NASA_API_KEY = credentials('nasa-api-key')
-                VITE_PIC_DAY = 'https://api.nasa.gov/planetary/apod'
-            }
+           
             steps{
                 echo 'Build process started'
                 echo  VITE_NASA_API_KEY
                 echo   VITE_PIC_DAY
                 sh '''
-                    set VITE_NASA_API_KEY=${VITE_NASA_API_KEY}
-                    set VITE_PIC_DAY=${VITE_PIC_DAY}
-                    cat .env.production
                     npm ci
                     npm run build
                 '''
