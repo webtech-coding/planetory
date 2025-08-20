@@ -45,6 +45,8 @@ pipeline{
             }
             steps{
                 echo 'Build process started'
+                echo  VITE_NASA_API_KEY
+                echo   VITE_PIC_DAY
                 sh '''
                     set VITE_NASA_API_KEY=${VITE_NASA_API_KEY}
                     set VITE_PIC_DAY=${VITE_PIC_DAY}
@@ -62,6 +64,7 @@ pipeline{
             }
         }
         stage("DEPLOYMENT"){
+            /*
              agent{
                 docker {
                     image 'node:24'
@@ -82,6 +85,7 @@ pipeline{
                     echo 'failed to deploy the site'
                 }
             }
+            */
         }
     }
 }
