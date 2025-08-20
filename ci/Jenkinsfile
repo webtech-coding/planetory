@@ -11,7 +11,7 @@ pipeline{
         disableConcurrentBuilds()      
         // timeout for whole pipeline in case of some step hanging
         // 300s:5 minute
-        timeout(time: 15, unit: 'MINUTES')
+        timeout(time: 30, unit: 'MINUTES')
     }
     stages{
         stage('NPM INSTALL'){
