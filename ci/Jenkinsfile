@@ -64,6 +64,10 @@ pipeline{
             }
         }
         stage("DEPLOYMENT"){
+            agent any
+            steps{
+                echo "deployment"
+            }
             /*
              agent{
                 docker {
